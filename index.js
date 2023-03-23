@@ -21,8 +21,13 @@ app.post("/", (req, res) => {
  
     console.log(firstName, lastName, email);
 
+<<<<<<< HEAD
     const myApiKey = fs.readFileSync('API_KEY.txt', 'utf8').trim();
     const url = "us17";
+=======
+    const myApiKey = "your API key";
+    const url = "us**";
+>>>>>>> refs/remotes/origin/main
 
     client.setConfig({
         apiKey: myApiKey,
@@ -30,7 +35,7 @@ app.post("/", (req, res) => {
     });
 
     const run = async () => {
-        const response = await client.lists.batchListMembers("68447216e2", {
+        const response = await client.lists.batchListMembers("List_id", {
             members: [{
                 email_address: email,
                 status: "subscribed",
