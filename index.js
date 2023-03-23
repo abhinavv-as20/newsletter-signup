@@ -20,8 +20,8 @@ app.post("/", (req, res) => {
  
     console.log(firstName, lastName, email);
 
-    const myApiKey = "fbf29ca7280fce113e1d2429de6ad53d-us17";
-    const url = "us17";
+    const myApiKey = "your API key";
+    const url = "us**";
 
     client.setConfig({
         apiKey: myApiKey,
@@ -29,7 +29,7 @@ app.post("/", (req, res) => {
     });
 
     const run = async () => {
-        const response = await client.lists.batchListMembers("68447216e2", {
+        const response = await client.lists.batchListMembers("List_id", {
             members: [{
                 email_address: email,
                 status: "subscribed",
