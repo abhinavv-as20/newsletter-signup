@@ -3,6 +3,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const client = require("@mailchimp/mailchimp_marketing");
+const fs = require('fs');
 
 const app = express();
 
@@ -20,7 +21,7 @@ app.post("/", (req, res) => {
  
     console.log(firstName, lastName, email);
 
-    const myApiKey = "fbf29ca7280fce113e1d2429de6ad53d-us17";
+    const myApiKey = fs.readFileSync('API_KEY.txt', 'utf8').trim();
     const url = "us17";
 
     client.setConfig({
@@ -58,5 +59,3 @@ app.post("/failure.html", (req, res)=> {
 app.listen(process.env.PORT || 3000, () => {
     console.log("Server is running on port 3000");
 });
-
-
